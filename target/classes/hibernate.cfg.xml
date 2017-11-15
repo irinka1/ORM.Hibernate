@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.characterEncoding">UTF-8</property>
+	 	<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/module2</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">Bhbirf29</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<property name="hibernate.jdbc.batch_size">50</property>
+		<property name="hibernate.order_inserts">true</property>
+		<property name="hibernate.order_updates">true</property>
+
+		<!-- Налаштування кешування -->
+		<property name="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.SingletonEhCacheRegionFactory</property>
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+
+		<!-- Вивід SQL запитів в консоль -->
+		<property name="show_sql">true</property>
+		<!--property name="format_sql">true</property-->
+
+		<!-- Автоматичне створення і оновлення структури БД -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<!-- Маппінг класів-->
+		<!--mapping class="hibernate.cachetest.Institute"/-->
+		<!--<mapping class="hibernate.cachetest.Cat"/>-->
+		<mapping resource="Developer.hbm.xml"/>
+		<mapping resource="Skills.hbm.xml"/>
+		<mapping resource="Companies.hbm.xml"/>
+		<mapping resource="Customers.hbm.xml"/>
+		<mapping resource="Project.hbm.xml"/>
+
+		<!-- Маппінг классів через xml -->
+		<!--<mapping resource="Institute.hbm.xml"/>-->
+		<!--<mapping resource="Developer.hbm.xml"/>-->
+	</session-factory>
+</hibernate-configuration>
